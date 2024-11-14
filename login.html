@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="" onsubmit="return validateForm()">
+
+            <h1>Registration Form</h1>
+            <div style="display: flex; justify-content: space-between; ">
+                <div style="width: 48%;" class="input-box">
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                </div>
+                <div style="width: 48%;" class="input-box">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="date" id="dob" name="dob" placeholder="Date of Birth">
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" name="email" placeholder="Email">
+                <!-- <i class="bx bxs-user" style="margin-right: 35px;"></i> -->
+            </div>
+            <div class="input-box">
+                <input type="text" id="address" name="address" placeholder="Address">
+            </div>
+            <div class="input-box">
+                <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number">
+            </div>
+            <div class="input-box">
+                <input type="password" id="pass" name="passw" placeholder="Password">
+            </div>
+
+            <!-- <div class="input-box">
+                <input type="password" placeholder="Password ">
+            <i class="bx bxs-lock-alt" style="top: 52%; margin-right: 35px;"></i> -->
+
+            <!-- </div> -->
+            <!-- <div class="remember-forgot">
+                <label><input type="checkbox"> Remember Me</label>
+                <a href="# ">Forgot Password?</a>
+            </div> -->
+            <input type="submit" class="btn" value="Register"></input>
+            <!-- <div class="register-link">
+                <p><a href="#">Register</a></p>
+            </div> -->
+
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Get form inputs
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var dob = document.getElementById("dob").value;
+            var address = document.getElementById("address").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var password = document.getElementById("pass").value;
+
+            // Validate first name
+            if (firstName.length < 2) {
+                alert("First name must be at least 2 characters");
+                return false;
+            }
+
+            // Validate last name
+            if (lastName.length < 2) {
+                alert("Last name must be at least 2 characters");
+                return false;
+            }
+
+            // Validate date of birth (you can add more specific validation if needed)
+            if (!dob) {
+                alert("Please enter a valid date of birth");
+                return false;
+            }
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid email address");
+                return false;
+            }
+
+            // Validate address
+            if (!address) {
+                alert("please enter your address");
+                return false;
+            }
+
+            //validate mobile no 
+            var mobileRegex = /^\d{10}$/;
+            if (!mobileRegex.test(mobile)) {
+                alert("Invalid mobile number");
+                return false;
+            }
+
+            // Validate password (add your specific password criteria)
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters");
+                return false;
+            }
+
+            // Form is valid
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
